@@ -210,6 +210,12 @@ struct GICD_TYPER {
 }
 ```
 
+## `defmt` support
+
+The `bitfield` macro can generate a `defmt::Format` implementation for you which prints
+the `defmt::Format` implementation of the inner fields. You can do this using the `defmt`
+specifier, similarly to the `debug` specifier.
+
 ## Dependencies
 
 Arbitrary bit widths like u5 or u67 do not exist in Rust at the moment. Therefore, the following dependency is required:
