@@ -364,7 +364,7 @@ pub fn bitfield(args: TokenStream, input: TokenStream) -> TokenStream {
                     .iter()
                     .map(|field| {
                         let field_name = &field.field_name;
-                        quote! { arbitrary_int::Number::value(self.#field_name()), }
+                        quote! { self.#field_name(), }
                     })
                     .collect();
                 defmt_trait.append_all(quote! {
