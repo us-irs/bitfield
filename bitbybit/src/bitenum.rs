@@ -253,6 +253,8 @@ fn check_explicit_exhaustive(
 /// methods.
 pub(crate) fn fallback_impl(input: &syn::ItemEnum) -> TokenStream {
     let name = &input.ident;
+    // Error string in unreachable! would be nice, but causes errors because a non-const
+    // formatting macro is used in a const method.
     quote! {
         #[derive(Copy, Clone)]
         #input
